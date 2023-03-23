@@ -12,6 +12,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  background: url('./faris-mohammed-d30sszrW7Vw-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a {
@@ -65,3 +68,5 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+body {}

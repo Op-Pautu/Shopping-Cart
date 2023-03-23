@@ -1,20 +1,54 @@
-.topBarItems {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    justify-content: center;
+.topBar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    transition: 0.5s all ease;
+    background-color: black;
+    color: white;
 
-    list-style-type: none;
 
-    a {
-        color: #fff;
 
-        font-size: 1.2rem;
-        font-weight: 600;
-        transition: all 0.3s ease-in-out;
+    .topBarContainer {
 
-        &:hover {
-            color: #f5f5f5;
+        background-color: black;
+        position: sticky;
+        color: white;
+        top: 0;
+        z-index: 999;
+        transition: 0.5s all ease;
+        padding: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .topBarTitle {
+            color: #05cff3;
+            font-family: 'Alfa Slab One', cursive;
+
         }
+
+        .topBarItems {
+            display: flex;
+            gap: 150px;
+            list-style-type: none;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Alfa Slab One', cursive;
+
+            a {
+                color: white;
+
+                font-size: 1.5rem;
+                font-weight: 600;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    color: #f5f5f5;
+                }
+            }
+        }
+
+
     }
+
 }

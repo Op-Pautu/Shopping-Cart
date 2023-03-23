@@ -5,16 +5,17 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: rgb(0, 0, 0);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  background: url('./faris-mohammed-d30sszrW7Vw-unsplash.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background: url('./pexels-mark-cruzat-3494806.jpg');
+
+  background-repeat: no-repeat; */
+
 }
 
 a {
@@ -69,4 +70,7 @@ button:focus-visible {
   }
 }
 
-body {}
+body {
+  padding: 0;
+  margin: 0;
+}

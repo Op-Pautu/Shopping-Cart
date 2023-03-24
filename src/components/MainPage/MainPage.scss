@@ -1,4 +1,36 @@
 .mainPage {
-
     height: 100vh;
+
+    background: url('https://images.pexels.com/photos/2067569/pexels-photo-2067569.jpeg?auto=compress&cs=tinysrgb&w=1600');
+
+
+
+    background-size: cover;
+
+    .mainContainer {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 80px;
+
+
+        .leftContent {
+            h3 {
+                font-weight: 700;
+                color: rgb(123, 123, 123);
+
+                font-family: 'Poppins', sans-serif;
+
+            }
+
+            p {
+                font-size: 36px;
+            }
+
+            button {
+                text-decoration: none;
+            }
+        }
+
+        .rightContent {}
+    }
 }

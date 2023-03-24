@@ -1,7 +1,7 @@
 import React from "react";
 import "./TopBar.scss";
 import { FaShoppingCart } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 export default function TopBar() {
   return (
     <div className="topBar">
@@ -9,10 +9,10 @@ export default function TopBar() {
         <h1 className="topBarTitle">Op's Bookstore</h1>
         <ul className="topBarItems">
           <li>
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="/about">Shop</a>
+            <Link to="/store">Shop</Link>
           </li>
           <li>
             <a href="/contact">Contact</a>

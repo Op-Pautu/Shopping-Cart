@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import TopBar from "../../components/TopBar/TopBar";
 import "./Store.scss";
 export default function Store() {
   return (
     <div className="store">
+      <TopBar />
       <h1>Store</h1>
       <ul>
         <li>Books</li>

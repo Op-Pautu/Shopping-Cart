@@ -16,36 +16,54 @@
         top: 0;
         z-index: 999;
         transition: 0.5s all ease;
-        padding: 40px 0;
+        padding: 20px 0;
         display: flex;
         align-items: center;
         justify-content: space-around;
 
         .topBarTitle {
-            color: #05cff3;
+            color: #7f59ee;
             font-family: 'Alfa Slab One', cursive;
-
+            font-size: 2.8rem;
         }
 
         .topBarItems {
+
             display: flex;
-            gap: 150px;
+            gap: 100px;
             list-style-type: none;
             align-items: center;
             justify-content: center;
             font-family: 'Alfa Slab One', cursive;
 
-            a {
-                color: white;
 
-                font-size: 1.5rem;
-                font-weight: 600;
-                transition: all 0.3s ease-in-out;
+            li {
 
-                &:hover {
-                    color: #f5f5f5;
+
+
+
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    font-weight: 600;
+                    transition: all 0.3s ease-in-out;
+                    font-size: 1.8rem;
+                    font-family: 'Courier New', Courier, monospace;
+
+                    &:hover {
+                        color: gray;
+                    }
                 }
             }
+
+            .cart {
+                vertical-align: top;
+
+
+            }
+
+
         }
 
 

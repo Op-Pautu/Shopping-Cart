@@ -1,5 +1,7 @@
 import React from "react";
 import "./TopBar.scss";
+import { FaShoppingCart } from "react-icons/fa";
+
 export default function TopBar() {
   return (
     <div className="topBar">
@@ -14,6 +16,11 @@ export default function TopBar() {
           </li>
           <li>
             <a href="/contact">Contact</a>
+          </li>
+          <li className="cart">
+            <a href="/cart">
+              <FaShoppingCart />
+            </a>
           </li>
         </ul>
       </div>

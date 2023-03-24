@@ -26,11 +26,34 @@
                 font-size: 36px;
             }
 
-            button {
-                text-decoration: none;
-            }
         }
 
-        .rightContent {}
+        .rightContent {
+            padding-top: 70px;
+
+            button {
+
+                text-decoration: none;
+                padding: 20px 50px;
+                font-size: 24px;
+                border-radius: 50px;
+                background-color: black;
+                color: white;
+                cursor: pointer;
+                -moz-osx-font-smoothing: grayscale;
+                backface-visibility: hidden;
+                transform: translateZ(0);
+                transition: transform .15s ease-in-out;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                backdrop-filter: blur(4px);
+
+                /* add backdrop-filter */
+                &:hover,
+                &:focus {
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                    transform: scale(1.1);
+                }
+            }
+        }
     }
 }

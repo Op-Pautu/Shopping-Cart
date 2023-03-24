@@ -7,15 +7,16 @@ export default function MainPage() {
       <div className="mainContainer">
         <div className="leftContent">
           <h3>BEST BOOKSTORE IN THE 'HOOD</h3>
-          <p>Something something knowledge is power</p>
-          <div className="shopBtn">
-            <Link to="/store">
-              <button>Shop Now</button>
-            </Link>
-          </div>
+          <p>
+            Something something<br></br>
+            knowledge is power
+          </p>
+          <div className="shopBtn"></div>
         </div>
         <div className="rightContent">
-          <img className="bookPic" src="" alt="bookstore" />
+          <Link to="/store">
+            <button>Shop Now</button>
+          </Link>
         </div>
       </div>
     </div>

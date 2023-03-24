@@ -1,0 +1,45 @@
+.aboutContainer {
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: auto;
+
+    .aboutText {
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
+        p {
+            font-size: 21px;
+        }
+
+        .location {
+            font-size: 33px;
+            font-weight: 600;
+            color: #111;
+
+        }
+    }
+
+    .aboutIcons {
+
+        display: flex;
+
+        gap: 100px;
+        margin-top: 80px;
+        justify-content: center;
+
+        a {
+
+
+            svg {
+                font-size: 80px;
+                color: #111;
+            }
+        }
+    }
+
+}

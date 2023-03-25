@@ -1,7 +1,7 @@
 .cardContainer {
     padding: 50px 150px;
-    border: 1px solid red;
-    margin-left: auto;
+
+
     background-color: #000;
 
     color: white;
@@ -14,10 +14,33 @@
     }
 
     .cardTitle {
-        h2 {
-            font-size: 30px;
-            font-weight: 600;
+        line-height: 0.5;
 
+        h2 {
+            font-size: 25px;
+            font-weight: 600;
+            font-family: 'Work Sans', sans-serif;
+
+        }
+
+        span {
+            font-size: 19px;
+            font-weight: 600;
+            font-family: 'Work Sans', sans-serif;
+            color: rgb(221, 218, 218);
+
+        }
+    }
+
+    .cardPrice {
+        padding-top: 25px;
+
+        p {
+
+            // font-family: 'Major Mono Display', monospace;
+            // font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
         }
     }
 }

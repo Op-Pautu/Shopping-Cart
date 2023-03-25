@@ -8,11 +8,12 @@ export default function Card() {
           <img src="src/images/Black & Yellow Modern Architecture Book Cover.jpg" />
         </div>
         <div className="cardTitle">
-          <h2>Architecture </h2>
-          <h4>
-            <i>The Art Of Epic Structures</i>
-          </h4>
-          <p>Christian A. Jones</p>
+          <h2>The Art Of Epic Structures </h2>
+
+          <span>Christian A. Jones</span>
+        </div>
+        <div className="cardPrice">
+          <p>$19.99</p>
         </div>
       </div>
     </div>

@@ -29,9 +29,24 @@ export default function About() {
           <br />
           <div className="location">
             <p>
-              02 Karakura Town
+              <span>Address</span>
               <br />
-              <span>Shinigami Academy, Seireitei</span>
+              <span>The Good Place,</span>
+              <br />
+              <span>Heaven & Earth</span>
+              <br />
+              <br />
+              <span>Working Hours</span>
+              <br />
+              <span>Monday to Friday: 8:00am - 5:00pm</span>
+              <br />
+              <span>Saturday: 8:00am - 12:00pm</span>
+              <br />
+              <span>Sunday: Closed</span>
+              <br />
+              <br />
+              <span>Contact</span>
+
               <br />
               <span>012-5042-2040</span>
             </p>

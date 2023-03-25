@@ -12,7 +12,7 @@ export default function TopBar() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/store">Shop</Link>
+            <Link to="/store">Store</Link>
           </li>
           <li>
             <Link to="/about">About Us</Link>

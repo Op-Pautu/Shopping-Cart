@@ -1,0 +1,23 @@
+.cardContainer {
+    padding: 50px 150px;
+    border: 1px solid red;
+    margin-left: auto;
+    background-color: #000;
+
+    color: white;
+
+    .cardImg {
+        img {
+            height: 450px;
+            width: 400px;
+        }
+    }
+
+    .cardTitle {
+        h2 {
+            font-size: 30px;
+            font-weight: 600;
+
+        }
+    }
+}

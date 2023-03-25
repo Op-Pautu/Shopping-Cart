@@ -7,7 +7,7 @@ export default function Card({ handleClick }) {
       <div className="cardContainer">
         {data.map((item, index) => {
           return (
-            <div className="singleCard" key={index}>
+            <div className="singleCard" key={index} onClick={handleClick}>
               <div className="cardImg">
                 <img src={item.imgSrc} />
               </div>

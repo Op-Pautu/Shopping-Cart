@@ -18,9 +18,9 @@ export default function TopBar() {
             <Link to="/about">About Us</Link>
           </li>
           <li className="cart">
-            <a href="/cart">
+            <Link to="/cart">
               <FaShoppingCart />
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

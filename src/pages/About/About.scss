@@ -1,15 +1,17 @@
 .aboutContainer {
-    padding: 30px;
+    background-color: #000;
+    color: white;
+    min-height: 100vh;
 
-    display: flex;
-    flex-direction: column;
 
-    overflow: auto;
 
     .aboutText {
+        padding-top: 100px;
+        padding-left: 150px;
+
         h1 {
             font-family: 'Poppins', sans-serif;
-            color: #333;
+
         }
 
         p {
@@ -19,17 +21,17 @@
         .location {
             font-size: 33px;
             font-weight: 600;
-            color: #111;
+
 
         }
     }
 
     .aboutIcons {
-
+        margin-top: 8rem;
         display: flex;
 
         gap: 100px;
-        margin-top: 80px;
+
         justify-content: center;
 
         a {
@@ -37,7 +39,7 @@
 
             svg {
                 font-size: 80px;
-                color: #111;
+                color: white;
             }
         }
     }

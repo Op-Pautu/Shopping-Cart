@@ -1,20 +1,25 @@
-import React from "react";
-import { Link, redirect, Navigate } from "react-router-dom";
-
+import React, { useState } from "react";
 import Card from "../../components/Card/Card";
 import TopBar from "../../components/TopBar/TopBar";
 import "./Store.scss";
-import { useNavigate } from "react-router-dom";
+
+import Cart from "../Cart/Cart";
 export default function Store() {
-  let navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/cart");
+  const [cartItems, setCartItems] = useState([]);
+  const [showCart, setShowCart] = useState(false);
+  const addToCart = (item) => {
+    setCartItems([...cartItems, item]);
   };
 
   return (
     <div className="store">
       <TopBar />
-      <Card handleClick={handleClick} />
+      <Card
+        handleClick={(item) => addToCart(item)}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+      />
+      {showCart && <Cart cartItems={cartItems} />}
     </div>
   );
 }

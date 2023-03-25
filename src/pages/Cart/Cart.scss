@@ -1,0 +1,23 @@
+.cart {
+    .cartContainer {
+        padding: 50px 350px;
+        background-color: azure;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .singleCart {
+            .cartImg {
+                img {
+                    width: 500px;
+                    height: 600px;
+                }
+            }
+
+            h1 {
+                text-align: center;
+            }
+        }
+    }
+}

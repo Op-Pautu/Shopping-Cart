@@ -1,25 +1,36 @@
 import React, { useState } from "react";
-import Card from "../../components/Card/Card";
+
 import TopBar from "../../components/TopBar/TopBar";
 import "./Store.scss";
+import data from "../../books";
+import { useParams, Link } from "react-router-dom";
 
-import Cart from "../Cart/Cart";
 export default function Store() {
-  const [cartItems, setCartItems] = useState([]);
-  const [showCart, setShowCart] = useState(false);
-  const addToCart = (item) => {
-    setCartItems([...cartItems, item]);
-  };
-
   return (
     <div className="store">
       <TopBar />
-      <Card
-        handleClick={(item) => addToCart(item)}
-        cartItems={cartItems}
-        setCartItems={setCartItems}
-      />
-      {showCart && <Cart cartItems={cartItems} />}
+      <div className="cardContainer">
+        {data.map((item) => (
+          <div className="singleCard" key={item.id}>
+            <Link
+              to={`/store/${item.id}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div className="cardImg">
+                <img src={item.imgSrc} />
+              </div>
+              <div className="cardTitle">
+                <h2>{item.title}</h2>
+                <span>{item.author}</span>
+              </div>
+              <div className="cardPrice">
+                <p>{item.price}</p>
+              </div>
+              <button>Add to Cart</button>
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

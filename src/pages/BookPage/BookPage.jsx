@@ -11,11 +11,18 @@ export default function BookPage() {
     <div className="bookPage">
       <TopBar />
       <div className="bookPageContainer">
-        <h1 className="bookPageTitle">{book.title}</h1>
-        <p className="bookPageAuthor">Author: {book.author}</p>
-        <p className="bookPagePrice">Price: {book.price}</p>
         <img src={`../${book.imgSrc}`} className="bookPageImg" />
-        <p>{book.description}</p>
+        <div className="bookPageRight">
+          <div className="bookInfo">
+            <h2 className="bookPageTitle">{book.title}</h2>
+            <span className="bookPageAuthor">By {book.author}</span>
+          </div>
+          <p>
+            {book.description} for a fair price of {book.price}
+          </p>
+
+          <button onClick={handleClick}>Add to cart</button>
+        </div>
       </div>
     </div>
   );

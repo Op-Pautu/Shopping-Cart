@@ -2,27 +2,39 @@ import React from "react";
 import "./Cart.scss";
 import TopBar from "../../components/TopBar/TopBar";
 import { Link } from "react-router-dom";
-export default function Cart({ cartItems, handleRemoveFromCart }) {
+export default function Cart({
+  cartItems,
+  handleRemoveFromCart,
+  addItemToCart,
+}) {
   const [quantities, setQuantities] = React.useState(
     cartItems.reduce((acc, item) => {
       acc[item.id] = 1;
       return acc;
     }, {})
   );
+  console.log("number", quantities);
   const handleQuantityChange = (itemId, quantity) => {
     setQuantities({
       ...quantities,
       [itemId]: Math.max(1, Math.min(Number(quantity), 999)),
     });
   };
+  const getTotal = () => {
+    const total = cartItems.reduce(
+      (acc, item) => acc + item.price * (quantities[item.id] || 1),
+      0
+    );
+    return total;
+  };
 
   return (
     <div className="cart">
-      <TopBar />
       <div className="cartContainer">
         <div className="cartHeader">
           <h2>Your Cart</h2>
         </div>
+
         <div className="cartItems">
           {cartItems.length === 0 ? (
             <div className="emptyCart">Your cart is empty</div>
@@ -64,21 +76,16 @@ export default function Cart({ cartItems, handleRemoveFromCart }) {
             ))
           )}
         </div>
+        <button className="checkout">Checkout</button>
+
         <hr className="line" />
         <div className="cartTotal">
           <h3>Total</h3>
-          <p>
-            $
-            {cartItems.reduce(
-              (acc, item) => acc + item.price * quantities[item.id],
-              0
-            )}
-          </p>
+          <p>{totalQuantity}</p>
+          <Link to="/store" className="continueShopping">
+            Continue Shopping
+          </Link>
         </div>
-        <button className="checkout">Checkout</button>
-        <Link to="/store" className="continueShopping">
-          Continue Shopping
-        </Link>
       </div>
     </div>
   );

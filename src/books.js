@@ -14,7 +14,7 @@ const data = [
     title: "Am I A Robot?",
     author: "John Davies",
     price: "$4.99",
-    description: "Get your hands on this amazing book today.",
+    description: "Get your hands on this amazing book today",
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ const data = [
     title: "Will It Ever Be Enough?",
     author: "Estelle Darcy",
     price: "$5.99",
-    description: "Get your hands on this amazing book today.",
+    description: "Get your hands on this amazing book today",
   },
   {
     id: 4,
@@ -30,7 +30,7 @@ const data = [
     title: "The Art Of Epic Structures",
     author: "Christian A. Jones",
     price: "$19.99",
-    description: "Get your hands on this amazing book today.",
+    description: "Get your hands on this amazing book today",
   },
   {
     id: 5,
@@ -38,7 +38,7 @@ const data = [
     title: "The Tale Of The Mistaken Twin",
     author: "Katie Thompson",
     price: "$5.99",
-    description: "Get your hands on this amazing book today.",
+    description: "Get your hands on this amazing book today",
   },
   {
     id: 6,
@@ -46,7 +46,7 @@ const data = [
     title: "Alone: A True Story",
     author: "Morgan Maxwell",
     price: "$4.99",
-    description: "Get your hands on this amazing book today.",
+    description: "Get your hands on this amazing book today",
   },
   {
     id: 7,
@@ -54,7 +54,7 @@ const data = [
     title: "You Got This",
     author: "Benjamin Shah",
     price: "$4.55",
-    description: "Get your hands on this amazing book today.",
+    description: "Get your hands on this amazing book today",
   },
   {
     id: 8,
@@ -63,7 +63,7 @@ const data = [
     title: "Path To Creative Freedom",
     author: "Takehiro Kanegi",
     price: "$4.99",
-    description: "Get your hands on this amazing book today.",
+    description: "Get your hands on this amazing book today",
   },
   {
     id: 9,
@@ -71,7 +71,7 @@ const data = [
     title: "Write It Right",
     author: "Annie Okuda",
     price: "$5.99",
-    description: "Get your hands on this amazing book today.",
+    description: "Get your hands on this amazing book today",
   },
   {
     id: 10,
@@ -79,7 +79,7 @@ const data = [
     title: "Amara The Brave",
     author: "Matt Zhang",
     price: "$3.99",
-    description: "Get your hands on this amazing book today.",
+    description: "Get your hands on this amazing book today",
   },
   {
     id: 11,
@@ -87,7 +87,7 @@ const data = [
     title: "Angry Robot",
     author: "Brigette Schwartz",
     price: "$14.99",
-    description: "Get your hands on this amazing book today.",
+    description: "Get your hands on this amazing book today",
   },
   {
     id: 12,
@@ -95,7 +95,7 @@ const data = [
     title: "How To Build Your Self-Esteem",
     author: "Olivia Watson",
     price: "$9.99",
-    description: "Get your hands on this amazing book today.",
+    description: "Get your hands on this amazing book today",
   },
 ];
 

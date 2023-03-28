@@ -2,7 +2,7 @@ import React from "react";
 import "./TopBar.scss";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-export default function TopBar() {
+export default function TopBar({ totalQuantity }) {
   return (
     <div className="topBar">
       <div className="topBarContainer">
@@ -20,6 +20,7 @@ export default function TopBar() {
           <li className="cart">
             <Link to="/cart">
               <FaShoppingCart />
+              <span className="cartLength">{totalQuantity}</span>
             </Link>
           </li>
         </ul>

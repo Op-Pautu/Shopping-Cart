@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import TopBar from "../../components/TopBar/TopBar";
 import "./Store.scss";
 import data from "../../books";
 import { Link } from "react-router-dom";
@@ -8,7 +7,6 @@ import { Link } from "react-router-dom";
 export default function Store() {
   return (
     <div className="store">
-      <TopBar />
       <div className="cardContainer">
         {data.map((item) => (
           <div className="singleCard" key={item.id}>
@@ -26,7 +24,6 @@ export default function Store() {
               <div className="cardPrice">
                 <p>{item.price}</p>
               </div>
-              <button>Add to Cart</button>
             </Link>
           </div>
         ))}

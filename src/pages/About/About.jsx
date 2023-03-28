@@ -12,7 +12,6 @@ import "./About.scss";
 export default function About() {
   return (
     <div className="about">
-      <TopBar />
       <div className="aboutContainer">
         <div className="aboutText">
           <h1>We're a for-profit store looking to earn a living</h1>

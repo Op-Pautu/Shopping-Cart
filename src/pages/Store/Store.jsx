@@ -22,7 +22,7 @@ export default function Store() {
                 <span>{item.author}</span>
               </div>
               <div className="cardPrice">
-                <p>{item.price}</p>
+                <p>${item.price}</p>
               </div>
             </Link>
           </div>

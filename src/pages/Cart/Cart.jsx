@@ -1,12 +1,9 @@
 import React from "react";
 import "./Cart.scss";
-import TopBar from "../../components/TopBar/TopBar";
+
 import { Link } from "react-router-dom";
-export default function Cart({
-  cartItems,
-  handleRemoveFromCart,
-  addItemToCart,
-}) {
+
+export default function Cart({ cartItems, handleRemoveFromCart }) {
   const [quantities, setQuantities] = React.useState(
     cartItems.reduce((acc, item) => {
       acc[item.id] = 1;
@@ -21,12 +18,27 @@ export default function Cart({
     });
   };
   const getTotal = () => {
-    const total = cartItems.reduce(
-      (acc, item) => acc + item.price * (quantities[item.id] || 1),
-      0
-    );
-    return total;
+    let total = 0;
+    let totalQuantity = 0;
+
+    cartItems.forEach((item) => {
+      const quantity = quantities[item.id] || 1;
+      console.log("quantity", quantity);
+      const itemTotal = item.price * quantity;
+      console.log("itemTotal", itemTotal);
+
+      if (isNaN(itemTotal)) {
+        console.error(`Invalid price for item ${item.id}: ${item.price}`);
+        return;
+      }
+
+      total += itemTotal;
+      totalQuantity += quantity;
+    });
+
+    return { total, totalQuantity };
   };
+  const { total, totalQuantity } = getTotal();
 
   return (
     <div className="cart">
@@ -81,7 +93,7 @@ export default function Cart({
         <hr className="line" />
         <div className="cartTotal">
           <h3>Total</h3>
-          <p>{totalQuantity}</p>
+          <p>{total} items</p>
           <Link to="/store" className="continueShopping">
             Continue Shopping
           </Link>

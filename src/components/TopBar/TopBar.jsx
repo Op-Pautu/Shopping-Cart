@@ -1,27 +1,47 @@
 import React from "react";
 import "./TopBar.scss";
 import { FaShoppingCart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 export default function TopBar({ totalQuantity }) {
+  const activeStyles = {
+    fontWeight: "bold",
+    textDecoration: "underline",
+    color: "white",
+  };
   return (
     <div className="topBar">
       <div className="topBarContainer">
         <h1 className="topBarTitle">Op's Bookstore</h1>
         <ul className="topBarItems">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink
+              to="/"
+              style={({ isActive }) => (isActive ? activeStyles : null)}
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/store">Store</Link>
+            <NavLink
+              to="/store"
+              style={({ isActive }) => (isActive ? activeStyles : null)}
+            >
+              Store
+            </NavLink>
           </li>
           <li>
-            <Link to="/about">About Us</Link>
+            <NavLink
+              to="/about"
+              style={({ isActive }) => (isActive ? activeStyles : null)}
+            >
+              About Us
+            </NavLink>
           </li>
           <li className="cart">
-            <Link to="/cart">
+            <NavLink to="/cart">
               <FaShoppingCart />
               <span className="cartLength">{totalQuantity}</span>
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

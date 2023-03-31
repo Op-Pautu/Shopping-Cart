@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./Store.scss";
 import data from "../../books";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Store() {
   return (
@@ -10,7 +10,7 @@ export default function Store() {
       <div className="cardContainer">
         {data.map((item) => (
           <div className="singleCard" key={item.id}>
-            <Link
+            <NavLink
               to={`/store/${item.id}`}
               style={{ textDecoration: "none", color: "inherit" }}
             >
@@ -24,7 +24,7 @@ export default function Store() {
               <div className="cardPrice">
                 <p>${item.price}</p>
               </div>
-            </Link>
+            </NavLink>
           </div>
         ))}
       </div>

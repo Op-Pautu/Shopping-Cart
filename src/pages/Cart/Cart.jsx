@@ -1,31 +1,37 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { CartContext } from "../../components/CartContext";
+import { Link } from "react-router-dom";
 import "./Cart.scss";
 
-import { Link } from "react-router-dom";
-
-export default function Cart({ cartItems, handleRemoveFromCart }) {
-  const [quantities, setQuantities] = React.useState(
-    cartItems.reduce((acc, item) => {
-      acc[item.id] = 1;
+export default function Cart() {
+  const { cart, handleRemoveFromCart } = useContext(CartContext);
+  const [quantities, setQuantities] = useState(
+    cart.reduce((acc, item) => {
+      acc[item.id] = item.quantity;
       return acc;
     }, {})
   );
-  console.log("number", quantities);
+  const [totalQuantity, setTotalQuantity] = useState(0);
+
+  useEffect(() => {
+    setTotalQuantity(
+      Object.values(quantities).reduce((acc, val) => acc + val, 0)
+    );
+  }, [quantities]);
+
   const handleQuantityChange = (itemId, quantity) => {
     setQuantities({
       ...quantities,
       [itemId]: Math.max(1, Math.min(Number(quantity), 999)),
     });
   };
+
   const getTotal = () => {
     let total = 0;
-    let totalQuantity = 0;
 
-    cartItems.forEach((item) => {
-      const quantity = quantities[item.id] || 1;
-      console.log("quantity", quantity);
+    cart.forEach((item) => {
+      const quantity = quantities[item.id] || item.quantity;
       const itemTotal = item.price * quantity;
-      console.log("itemTotal", itemTotal);
 
       if (isNaN(itemTotal)) {
         console.error(`Invalid price for item ${item.id}: ${item.price}`);
@@ -33,12 +39,12 @@ export default function Cart({ cartItems, handleRemoveFromCart }) {
       }
 
       total += itemTotal;
-      totalQuantity += quantity;
     });
 
-    return { total, totalQuantity };
+    return total.toFixed(2);
   };
-  const { total, totalQuantity } = getTotal();
+
+  const total = getTotal();
 
   return (
     <div className="cart">
@@ -48,10 +54,10 @@ export default function Cart({ cartItems, handleRemoveFromCart }) {
         </div>
 
         <div className="cartItems">
-          {cartItems.length === 0 ? (
+          {cart.length === 0 ? (
             <div className="emptyCart">Your cart is empty</div>
           ) : (
-            cartItems.map((item) => (
+            cart.map((item) => (
               <div key={item.id} className="cartItem">
                 <div className="cartImg">
                   <img src={item.imgSrc} alt={item.title} />
@@ -88,12 +94,12 @@ export default function Cart({ cartItems, handleRemoveFromCart }) {
             ))
           )}
         </div>
-        <button className="checkout">Checkout</button>
 
         <hr className="line" />
+
         <div className="cartTotal">
           <h3>Total</h3>
-          <p>{total} items</p>
+          <p>{`$${total}`}</p>
           <Link to="/store" className="continueShopping">
             Continue Shopping
           </Link>

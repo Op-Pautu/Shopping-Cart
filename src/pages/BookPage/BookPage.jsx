@@ -3,30 +3,35 @@ import { useParams } from "react-router-dom";
 import data from "../../books";
 
 import "./BookPage.scss";
-export default function BookPage({ cart, setCart, addItemToCart }) {
+import { CartContext } from "../../components/CartContext";
+import { useContext } from "react";
+export default function BookPage() {
   const { id } = useParams();
   const book = data.find((item) => item.id === parseInt(id));
 
-  const handleAddToCart = (book) => {
-    const existingItem = cart.findIndex((item) => item.id === book.id);
-    if (existingItem !== -1) {
-      // Update the quantity of the existing item in the cart
-      const updatedItem = {
-        ...cart[existingItem],
-        quantity: cart[existingItem].quantity + 1,
-      };
-      setCart([
-        ...cart.slice(0, existingItem),
-        updatedItem,
-        ...cart.slice(existingItem + 1),
-      ]);
-    } else {
-      // Add a new item to the cart
-      setCart([...cart, { ...book, quantity: 1 }]);
-    }
-  };
+  // const handleAddToCart = (book) => {
+  //   const existingItem = cart.findIndex((item) => item.id === book.id);
+  //   if (existingItem !== -1) {
+  //     // Update the quantity of the existing item in the cart
+  //     const updatedItem = {
+  //       ...cart[existingItem],
+  //       quantity: cart[existingItem].quantity + 1,
+  //     };
+  //     setCart([
+  //       ...cart.slice(0, existingItem),
+  //       updatedItem,
+  //       ...cart.slice(existingItem + 1),
+  //     ]);
+  //   } else {
+  //     // Add a new item to the cart
+  //     setCart([...cart, { ...book, quantity: 1 }]);
+  //   }
+  // };
+
+  const { addItemToCart } = useContext(CartContext);
+
   const handleClick = () => {
-    handleAddToCart(book);
+    addItemToCart(book);
     console.log(book);
   };
   return (

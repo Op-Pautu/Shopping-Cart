@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./TopBar.scss";
 import { FaShoppingCart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-export default function TopBar({ totalQuantity }) {
+import { CartContext } from "../../components/CartContext";
+export default function TopBar() {
+  const { cart } = useContext(CartContext);
+  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
   const activeStyles = {
     fontWeight: "bold",
     textDecoration: "underline",

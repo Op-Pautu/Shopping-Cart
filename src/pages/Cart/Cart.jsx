@@ -3,49 +3,32 @@ import { CartContext } from "../../components/CartContext";
 import { Link } from "react-router-dom";
 import "./Cart.scss";
 
-export default function Cart() {
-  const { cart, handleRemoveFromCart } = useContext(CartContext);
-  const [quantities, setQuantities] = useState(
-    cart.reduce((acc, item) => {
-      acc[item.id] = item.quantity;
-      return acc;
-    }, {})
-  );
-  const [totalQuantity, setTotalQuantity] = useState(0);
+export default function Cart(props) {
+  // const { cart, handleRemoveFromCart } = useContext(CartContext);
+  const { cart, handleRemoveFromCart, handleQuantityChange } = props;
 
-  useEffect(() => {
-    setTotalQuantity(
-      Object.values(quantities).reduce((acc, val) => acc + val, 0)
-    );
-  }, [quantities]);
+  // const getTotal = () => {
+  //   let total = 0;
 
-  const handleQuantityChange = (itemId, quantity) => {
-    setQuantities({
-      ...quantities,
-      [itemId]: Math.max(1, Math.min(Number(quantity), 999)),
-    });
-  };
+  //   cart.forEach((item) => {
+  //     const quantity = quantities[item.id] || item.quantity;
+  //     const itemTotal = item.price * quantity;
 
-  const getTotal = () => {
-    let total = 0;
+  //     if (isNaN(itemTotal)) {
+  //       console.error(`Invalid price for item ${item.id}: ${item.price}`);
+  //       return;
+  //     }
 
-    cart.forEach((item) => {
-      const quantity = quantities[item.id] || item.quantity;
-      const itemTotal = item.price * quantity;
+  //     total += itemTotal;
+  //   });
 
-      if (isNaN(itemTotal)) {
-        console.error(`Invalid price for item ${item.id}: ${item.price}`);
-        return;
-      }
+  //   return total.toFixed(2);
+  // };
 
-      total += itemTotal;
-    });
-
-    return total.toFixed(2);
-  };
-
-  const total = getTotal();
-
+  // const total = getTotal();
+  const total = cart
+    .reduce((acc, item) => acc + item.price * item.quantity, 0)
+    .toFixed(2);
   return (
     <div className="cart">
       <div className="cartContainer">
@@ -55,7 +38,7 @@ export default function Cart() {
 
         <div className="cartItems">
           {cart.length === 0 ? (
-            <div className="emptyCart">Your cart is empty</div>
+            <div className="emptyCart">Cart is empty</div>
           ) : (
             cart.map((item) => (
               <div key={item.id} className="cartItem">
@@ -64,20 +47,19 @@ export default function Cart() {
                 </div>
                 <div className="cartItemInfo">
                   <h3>{item.title}</h3>
-                  <p>{item.price}</p>
+                  <p>${item.price}</p>
                   <div className="cartQuantity">
                     <button
                       onClick={() =>
-                        handleQuantityChange(item.id, quantities[item.id] - 1)
+                        handleQuantityChange(item.id, item.quantity - 1)
                       }
-                      disabled={quantities[item.id] === 1}
                     >
                       -
                     </button>
-                    <span>{quantities[item.id]}</span>
+                    <span>{item.quantity}</span>
                     <button
                       onClick={() =>
-                        handleQuantityChange(item.id, quantities[item.id] + 1)
+                        handleQuantityChange(item.id, item.quantity + 1)
                       }
                     >
                       +
@@ -98,10 +80,12 @@ export default function Cart() {
         <hr className="line" />
 
         <div className="cartTotal">
-          <h3>Total</h3>
-          <p>{`$${total}`}</p>
+          <div className="totalDiv">
+            <h3>Total</h3>
+            <p>{`$${total}`}</p>
+          </div>
           <Link to="/store" className="continueShopping">
-            Continue Shopping
+            <button>Shop More</button>
           </Link>
         </div>
       </div>

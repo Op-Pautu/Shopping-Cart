@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
 import Home from "./pages/Home/Home";
 import Store from "./pages/Store/Store";
 import About from "./pages/About/About";
@@ -8,9 +8,14 @@ import BookPage from "./pages/BookPage/BookPage";
 import { Route, Routes } from "react-router-dom";
 import TopBar from "./components/TopBar/TopBar";
 import { CartContext } from "./components/CartContext";
+
 function App() {
   const [cart, setCart] = React.useState([]);
-  const [totalQuantity, setTotalQuantity] = useState(0);
+  const [totalQuantity, setTotalQuantity] = React.useState(0);
+  React.useEffect(() => {
+    const newTotalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+    setTotalQuantity(newTotalQuantity);
+  }, [cart]);
 
   const addItemToCart = (item) => {
     const existingItem = cart.find((cartItem) => cartItem.id === item.id);
@@ -20,23 +25,28 @@ function App() {
     } else {
       setCart([...cart, { ...item, quantity: 1 }]);
     }
-    const newTotalQuantity = cart.reduce(
-      (total, item) => total + item.quantity,
-      0
-    );
-    setTotalQuantity(newTotalQuantity);
   };
 
   const handleRemoveFromCart = (bookId) => {
     const bookToRemove = cart.find((book) => book.id === bookId);
     setCart(cart.filter((book) => book.id !== bookId));
-    const newTotalQuantity =
-      totalQuantity - (bookToRemove ? bookToRemove.quantity : 0);
-    setTotalQuantity(newTotalQuantity);
+  };
+  const handleQuantityChange = (bookId, newQuantity) => {
+    setCart(
+      cart.map((book) => {
+        if (book.id === bookId) {
+          return { ...book, quantity: newQuantity };
+        } else {
+          return book;
+        }
+      })
+    );
   };
 
   return (
-    <CartContext.Provider value={{ cart, addItemToCart, handleRemoveFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addItemToCart, handleRemoveFromCart, totalQuantity }}
+    >
       <div className="App">
         <TopBar totalQuantity={totalQuantity} />
         <Routes>
@@ -47,8 +57,9 @@ function App() {
             path="/cart"
             element={
               <Cart
-                cartItems={cart}
+                cart={cart}
                 handleRemoveFromCart={handleRemoveFromCart}
+                handleQuantityChange={handleQuantityChange}
               />
             }
           />

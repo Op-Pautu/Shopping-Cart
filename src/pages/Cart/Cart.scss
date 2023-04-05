@@ -3,11 +3,10 @@
     .cartContainer {
         background-color: #8BC6EC;
         background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
-        position: relative;
-        min-height: 80vh;
-        max-height: max-content;
-        padding: 60px 350px;
 
+        background-size: cover;
+        height: 85vh;
+        padding: 30px 0px;
 
         display: flex;
         flex-direction: column;
@@ -28,6 +27,14 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 120px;
+
+            .emptyCart {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                grid-column: 1 / -1;
+                font-size: 20px;
+            }
 
             .cartItem {
 
@@ -51,6 +58,10 @@
                         display: flex;
 
                         text-align: center;
+
+                        button {
+                            cursor: pointer;
+                        }
 
                         button,
                         span {
@@ -77,11 +88,56 @@
             margin: 20px 0;
         }
 
-        .cardTotal {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+        .cartTotal {
+            display: flex;
+            gap: 150px;
+
+            align-items: center;
+            justify-content: center;
+
+            .totalDiv {
+                display: flex;
+                gap: 15px;
+                align-items: center;
+
+                h3 {
+                    font-size: 30px;
+                }
+
+                p {
+
+                    font-size: 30px;
+                    font-weight: 700;
+                }
+            }
+
+            .continueShopping {
+
+                button {
+                    border-radius: 3px;
+                    background-color: black;
+                    color: white;
+                    padding: 10px 0px;
+                    font-size: 22px;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    border: 1px solid black;
+
+                    width: 180px;
+                    font-family: 'Work Sans', sans-serif;
+                    cursor: pointer;
+
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover,
+                    &:focus {
+                        background-color: #fff;
+                        color: black;
+                        transition: all 0.3s ease-in-out;
+                        border: 1px solid black;
+                    }
+                }
+            }
         }
     }
 }

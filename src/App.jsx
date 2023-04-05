@@ -5,9 +5,15 @@ import Store from "./pages/Store/Store";
 import About from "./pages/About/About";
 import Cart from "./pages/Cart/Cart";
 import BookPage from "./pages/BookPage/BookPage";
-import { Route, Routes } from "react-router-dom";
-import TopBar from "./components/TopBar/TopBar";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+
 import { CartContext } from "./components/CartContext";
+import Layout from "./components/Layout/Layout";
 
 function App() {
   const [cart, setCart] = React.useState([]);
@@ -42,39 +48,40 @@ function App() {
       })
     );
   };
-
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="store" element={<Store />} />
+        <Route path="about" element={<About />} />
+        <Route
+          path="cart"
+          element={
+            <Cart
+              cart={cart}
+              handleRemoveFromCart={handleRemoveFromCart}
+              handleQuantityChange={handleQuantityChange}
+            />
+          }
+        />
+        <Route
+          path="store/:id"
+          element={
+            <BookPage
+              cart={cart}
+              setCart={setCart}
+              addItemToCart={addItemToCart}
+            />
+          }
+        />
+      </Route>
+    )
+  );
   return (
     <CartContext.Provider
       value={{ cart, addItemToCart, handleRemoveFromCart, totalQuantity }}
     >
-      <div className="App">
-        <TopBar totalQuantity={totalQuantity} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/store" element={<Store />} />
-          <Route path="/about" element={<About />} />
-          <Route
-            path="/cart"
-            element={
-              <Cart
-                cart={cart}
-                handleRemoveFromCart={handleRemoveFromCart}
-                handleQuantityChange={handleQuantityChange}
-              />
-            }
-          />
-          <Route
-            path="/store/:id"
-            element={
-              <BookPage
-                cart={cart}
-                setCart={setCart}
-                addItemToCart={addItemToCart}
-              />
-            }
-          />
-        </Routes>
-      </div>
+      <RouterProvider router={router} />
     </CartContext.Provider>
   );
 }

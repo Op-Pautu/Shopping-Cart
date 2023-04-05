@@ -4,28 +4,8 @@ import { Link } from "react-router-dom";
 import "./Cart.scss";
 
 export default function Cart(props) {
-  // const { cart, handleRemoveFromCart } = useContext(CartContext);
   const { cart, handleRemoveFromCart, handleQuantityChange } = props;
 
-  // const getTotal = () => {
-  //   let total = 0;
-
-  //   cart.forEach((item) => {
-  //     const quantity = quantities[item.id] || item.quantity;
-  //     const itemTotal = item.price * quantity;
-
-  //     if (isNaN(itemTotal)) {
-  //       console.error(`Invalid price for item ${item.id}: ${item.price}`);
-  //       return;
-  //     }
-
-  //     total += itemTotal;
-  //   });
-
-  //   return total.toFixed(2);
-  // };
-
-  // const total = getTotal();
   const total = cart
     .reduce((acc, item) => acc + item.price * item.quantity, 0)
     .toFixed(2);
